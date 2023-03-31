@@ -21,7 +21,8 @@ make set
 
 ### Preprocess of the data
 
-Run the preprocessing in parallel (-j4 means 4 jobs in parallel):
+- Change adequately and consistently the variables IN and OUT in both `Makefile` and `key-handler`
+- Run the preprocessing in parallel (-j4 means 4 jobs in parallel):
 ```bash
 make -j4 preprocess
 ```
