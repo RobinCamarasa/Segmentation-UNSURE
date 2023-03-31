@@ -1,0 +1,26 @@
+#!/bin/sh
+
+IN="/tmp/ivan_demo/in.txt"
+OUT="/tmp/ivan_demo/out.txt"
+
+mark() {
+    grep "${1}" "${IN}" || exit 1
+    sed -i "s:${1}::g" ${IN}
+    echo "${1};${2}" >> ${OUT}
+    notify-send "${1} has been marked: ${2}"
+}
+
+visualize() {
+    gt=$(echo ${1} | sed -e "s/preprocess/data/g" | sed -e "s/png/nii.gz/g")
+    notify-send "itksnap ${gt}"
+    itksnap ${gt}
+}
+
+while read file
+do
+    case "$1" in
+    "C-j")  mark "${file}" "ok";;
+    "C-k")  mark "${file}" "not okay";;
+    "C-v")  visualize "${file}";;
+    esac
+done
