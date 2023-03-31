@@ -14,15 +14,15 @@ This programs aims to evaluate segmentation using as much as possible linux basi
 
 ### Configuration
 
-PLACE YOURSELF IN A NEW PYTHON VIRTUALENV, and run:
+- Change adequately and consistently the variables IN and OUT in both `Makefile` and `key-handler`
+- PLACE YOURSELF IN A NEW PYTHON VIRTUALENV, and run:
 ```bash
 make set
 ```
 
 ### Preprocess of the data
 
-- Change adequately and consistently the variables IN and OUT in both `Makefile` and `key-handler`
-- Run the preprocessing in parallel (-j4 means 4 jobs in parallel):
+Run the preprocessing in parallel (-j4 means 4 jobs in parallel):
 ```bash
 make -j4 preprocess
 ```
@@ -49,6 +49,8 @@ make clean
 - `<cr>` switch between thumbnail and image mode
 - `+` zoom in
 - `-` zoom out
+- `n` next image
+- `p` previous image
 - `C-x C-j` okay
 - `C-x C-k` not okay
 - `C-x C-v` vizualize the image in itksnap
